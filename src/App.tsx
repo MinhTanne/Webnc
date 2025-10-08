@@ -6,6 +6,7 @@ import { About } from "./components/About";
 import { Footer } from "./components/Footer";
 import { Login } from "./components/Login";
 import { Register } from "./components/Register";
+import { Courses } from "./components/Courses";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState("home");
@@ -20,6 +21,8 @@ export default function App() {
         return <Login onNavigate={handleNavigation} />;
       case "register":
         return <Register onNavigate={handleNavigation} />;
+      case "courses":
+        return <Courses onNavigate={handleNavigation} />;
       case "home":
       default:
         return (
@@ -36,7 +39,7 @@ export default function App() {
     }
   };
 
-  if (currentPage === "login" || currentPage === "register") {
+  if (currentPage === "login" || currentPage === "register" || currentPage === "courses") {
     return <div className="min-h-screen w-full">{renderPage()}</div>;
   }
 
